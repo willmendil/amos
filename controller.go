@@ -8,10 +8,13 @@ import (
 )
 
 func Controller() *gobot.Robot {
+  fmt.Println("Z")
 	joystickAdaptor := joystick.NewAdaptor()
+  fmt.Println("A")
 	joystick := joystick.NewDriver(joystickAdaptor,
 		"./gobotAssets/xboxone.json",
 	)
+  fmt.Println("B", joystickAdaptor, joystick)
 
 	work := func() {
 
@@ -162,11 +165,12 @@ func Controller() *gobot.Robot {
 
 	}
 
+  fmt.Println("C")
 	robot := gobot.NewRobot("joystickBot",
 		[]gobot.Connection{joystickAdaptor},
 		[]gobot.Device{joystick},
 		work,
 	)
-
+  fmt.Println("D")
 	return robot
 }
